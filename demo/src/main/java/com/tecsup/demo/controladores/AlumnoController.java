@@ -23,7 +23,7 @@ public class AlumnoController {
 
     @RequestMapping(value = "/alumnos", method = RequestMethod.GET)
     public String listar(Model model) {
-        model.addAttribute("titulo", "Listado de Alumnos   CJAVA");
+        model.addAttribute("titulo", "Listado de Alumnos");
         model.addAttribute("alumnos", servicio.listar());
         return "listarAlumnos";
     }

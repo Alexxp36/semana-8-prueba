@@ -23,7 +23,7 @@ public class CursoController {
 
     @RequestMapping(value = "/listar", method = RequestMethod.GET)
     public String listar(Model model) {
-        model.addAttribute("titulo", "Listado de Cursos   CJAVA");
+        model.addAttribute("titulo", "Listado de Cursos");
         model.addAttribute("cursos", servicio.listar());
         return "listarView";
     }
