@@ -58,37 +58,27 @@
     </nav>
 </header>
 
-<div class="container">
-    <div class="row">
-        <form class="col-6" role="search">
-            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-            <button class="btn btn-outline-light" type="submit">Buscar</button>
-        </form>
-    </div>
-</div>
-
-<div>
-    <div>
-        <form th:action="@{/form}" th:object="${curso}" method="post">
-            <div>
-                <h3>Datos del curso</h3>
-                <table>
-                    <tr>
-                        <td><label>Nombre</label></td>
-                        <td><input th:field="*{nombre}"/></td>
-                    </tr>
-                    <tr>
-                        <td><label>Creditos</label></td>
-                        <td><input th:field="*{creditos}"/></td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">
-                            <input type="submit" value="Guardar"/>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </form>
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header bg-success text-white">
+            <h3 class="mb-0">Datos del curso</h3>
+        </div>
+        <div class="card-body">
+            <form th:action="@{/form}" th:object="${curso}" method="post">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre:</label>
+                    <input type="text" class="form-control" id="nombre" th:field="*{nombre}" required/>
+                </div>
+                <div class="mb-3">
+                    <label for="creditos" class="form-label">Créditos:</label>
+                    <input type="number" class="form-control" id="creditos" th:field="*{creditos}" required/>
+                </div>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                    <button type="submit" class="btn btn-primary">Guardar</button>
+                    <a th:href="@{/listar}" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 
