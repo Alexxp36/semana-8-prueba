@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg fixed-top" style="background-color: #1e7e34;">
+        <div class="container">
+            <a class="navbar-brand fs-3" href="#" style="color: white;">Spring Boot</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll"
+                    aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarScroll">
+                <ul class="navbar-nav ms-auto my-2 my-lg-0 navbar-nav-scroll " style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                        <a class="nav-link link-light" aria-current="page" th:href="@{/}">Inicio</a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle link-light" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Gestion Cursos
+                        </a>
+                        <ul class="dropdown-menu ">
+                            <li><a class="dropdown-item" th:href="@{/listar}">Cursos</a></li>
+                            <li><a class="dropdown-item" href="#">Creditos</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle link-light" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Gestion Docente
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/docente}">Docentes</a></li>
+                            <li><a class="dropdown-item" href="#">Especialidad</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle link-light" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Gestion Alumnos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" th:href="@{/alumnos}">Alumnos</a></li>
+                            <li><a class="dropdown-item" href="#">Apoderado</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="row">
+        <form class="col-6" role="search">
+            <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+            <button class="btn btn-outline-light" type="submit">Buscar</button>
+        </form>
+    </div>
+</div>
+
+<div>
+    <div>
+        <form th:action="@{/form}" th:object="${curso}" method="post">
+            <div>
+                <h3>Datos del curso</h3>
+                <table>
+                    <tr>
+                        <td><label>Nombre</label></td>
+                        <td><input th:field="*{nombre}"/></td>
+                    </tr>
+                    <tr>
+                        <td><label>Creditos</label></td>
+                        <td><input th:field="*{creditos}"/></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <input type="submit" value="Guardar"/>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
