@@ -10,7 +10,7 @@ public interface CursoService {
 
     public void grabar(Curso curso);
 
-    public Curso buscar(Integer id);
+    public Curso buscar(String id);
 
-    public void eliminar(Integer id);
+    public void eliminar(String id);
 }

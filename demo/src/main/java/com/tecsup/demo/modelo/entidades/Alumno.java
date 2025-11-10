@@ -1,39 +1,34 @@
 package com.tecsup.demo.modelo.entidades;
 
-import jakarta.persistence.*;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.time.LocalDate;
 
-@Entity
-@Table(name = "alumno")
+@Document(collection = "alumnos")
 public class Alumno {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private String id;
 
-    @Column
     @NotNull
     @Size(min = 2, max = 50)
     private String nombres;
 
-    @Column
     @NotNull
     @Size(min = 2, max = 50)
     private String apellidos;
 
-    @Column(name = "fecha_nacimiento")
     private LocalDate fechaNacimiento;
 
-    @Column(length = 1)
     @Size(max = 1)
     private String sexo;
 
     public Alumno() {
     }
 
-    public Alumno(Integer id, String nombres, String apellidos, LocalDate fechaNacimiento, String sexo) {
+    public Alumno(String id, String nombres, String apellidos, LocalDate fechaNacimiento, String sexo) {
         this.id = id;
         this.nombres = nombres;
         this.apellidos = apellidos;
@@ -41,11 +36,11 @@ public class Alumno {
         this.sexo = sexo;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

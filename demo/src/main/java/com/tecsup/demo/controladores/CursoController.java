@@ -37,9 +37,9 @@ public class CursoController {
     }
 
     @RequestMapping(value = "/form/{id}")
-    public String editar(@PathVariable(value = "id") Integer id, Map<String, Object> model) {
+    public String editar(@PathVariable(value = "id") String id, Map<String, Object> model) {
         Curso curso = null;
-        if(id > 0) {
+        if(id != null && !id.isEmpty()) {
             curso = servicio.buscar(id);
         } else {
             return "redirect:/listar";
@@ -61,8 +61,8 @@ public class CursoController {
     }
 
     @RequestMapping(value = "/eliminar/{id}")
-    public String eliminar(@PathVariable(value = "id") Integer id) {
-        if(id > 0) {
+    public String eliminar(@PathVariable(value = "id") String id) {
+        if(id != null && !id.isEmpty()) {
             servicio.eliminar(id);
         }
         return "redirect:/listar";

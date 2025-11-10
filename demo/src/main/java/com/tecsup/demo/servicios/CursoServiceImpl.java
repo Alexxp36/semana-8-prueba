@@ -19,11 +19,11 @@ public class CursoServiceImpl implements CursoService {
 
     @Override
     @Transactional(readOnly = false)
-    public void eliminar(Integer id) { dao.deleteById(id); }
+    public void eliminar(String id) { dao.deleteById(id); }
 
     @Override
     @Transactional(readOnly = true)
-    public Curso buscar(Integer id) { return dao.findById(id).orElse( null); }
+    public Curso buscar(String id) { return dao.findById(id).orElse( null); }
 
     @Override
     @Transactional(readOnly = true)

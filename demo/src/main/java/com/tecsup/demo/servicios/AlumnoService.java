@@ -10,7 +10,7 @@ public interface AlumnoService {
 
     public void grabar(Alumno alumno);
 
-    public Alumno buscar(Integer id);
+    public Alumno buscar(String id);
 
-    public void eliminar(Integer id);
+    public void eliminar(String id);
 }

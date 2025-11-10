@@ -21,13 +21,13 @@ public class AlumnoServiceImpl implements AlumnoService {
 
     @Override
     @Transactional(readOnly = false)
-    public void eliminar(Integer id) {
+    public void eliminar(String id) {
         dao.deleteById(id);
     }
 
     @Override
     @Transactional(readOnly = true)
-    public Alumno buscar(Integer id) {
+    public Alumno buscar(String id) {
         return dao.findById(id).orElse(null);
     }
 
