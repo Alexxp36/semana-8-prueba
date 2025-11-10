@@ -64,23 +64,24 @@
 
     <p><a class="btn btn-success btn-sm" th:href="@{/form}">Crear curso</a></p>
 
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>id</th>
-            <th>nombre</th>
-            <th>creditos</th>
-            <th>editar</th>
-            <th>eliminar</th>
+    <table class="table table-primary table-hover table-bordered">
+        <thead class="table-light">
+        <tr style="text-align: center;">
+            <th>CODIGO</th>
+            <th>NOMBRES</th>
+            <th>CREDITOS</th>
+            <th>EDITAR</th>
+            <th>ELIMINAR</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody style="text-align: center;">
         <tr th:each="curso: ${cursos}">
             <td th:text="${curso.id}"></td>
             <td th:text="${curso.nombre}"></td>
             <td th:text="${curso.creditos}"></td>
-            <td><a class="btn btn-primary btn-sm" th:href="@{/form/} + ${curso.id}">editar</a></td>
-            <td><a class="btn btn-danger btn-sm" th:href="@{/eliminar/} + ${curso.id}">eliminar</a></td>
+            <td><a class="btn btn-primary btn-xs" th:href="@{/form/} + ${curso.id}">editar</a></td>
+            <td><a class="btn btn-danger btn-xs" th:href="@{/eliminar/} + ${curso.id}"
+                   onclick="return confirm('¿Estás seguro que quieres eliminar?');">eliminar</a></td>
         </tr>
         </tbody>
     </table>
